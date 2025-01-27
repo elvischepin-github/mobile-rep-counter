@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Gym Day</title>
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="neoContainer">
+        <!-- Big counter container -->
+        <div class="totalCountContainer">
+          <p class="totalCount">0</p>
+        </div>
+
+        <!-- Numbering buttons container -->
+        <div class="totalCountButtonsContainer">
+          <button
+            class="neoButton"
+            onclick="(() => {
+                counter++,
+                totalCountElement.innerHTML = counter,
+                localStorage.setItem('counter', counter)})()"
+          >
+            1
+          </button>
+          <button
+            class="neoButton"
+            onclick="(() => {
+                counter = counter + 5,
+                totalCountElement.innerHTML = counter,
+                localStorage.setItem('counter', counter)})()"
+          >
+            5
+          </button>
+          <button
+            class="neoButton"
+            onclick="(() => {
+                counter = counter + 10,
+                totalCountElement.innerHTML = counter,
+                localStorage.setItem('counter', counter)})()"
+          >
+            10
+          </button>
+          <button
+            class="neoButton"
+            onclick="(() => {
+                counter = counter + 25,
+                totalCountElement.innerHTML = counter,
+                localStorage.setItem('counter', counter)})()"
+          >
+            25
+          </button>
+          <button
+            class="neoButton"
+            onclick="(() => {
+                counter = counter + 50,
+                totalCountElement.innerHTML = counter,
+                localStorage.setItem('counter', counter)})()"
+          >
+            50
+          </button>
+          <button
+            class="neoButton"
+            onclick="(() => {
+                counter = 0,
+                totalCountElement.innerHTML = counter,
+                localStorage.setItem('counter', counter)})()"
+          >
+            <img src="bin.svg" alt="Bin" />
+          </button>
+        </div>
+
+        <!-- Range slider, lock, locked sets container -->
+        <div class="rangeContainer">
+          <div class="setLockContainer">
+            <button class="neoButton setSelectionButton">
+              <p class="setSelection">0</p>
+            </button>
+
+            <button onclick="toggleLock()" class="neoButton lockButton">
+              <img class="lockImage" src="lock-open.svg" alt="Lock" />
+            </button>
+          </div>
+          <input
+            class="rangeInput"
+            oninput="updateRangeSlider(this.value)"
+            type="range"
+            step="10"
+          />
+
+          <div class="doneAddResetContainer">
+            <button class="neoButton doneSetsButton">
+              <p class="doneSets"></p>
+            </button>
+
+            <button
+              onclick="(() => {
+                doneSets < (rangeInputElementValue / 10) ? doneSets++ : null,
+                doneSets == (rangeInputElementValue / 10) ? doneSetsElement.style.color = '#ff7b00' : null,
+                doneSetsElement.innerHTML = doneSets,
+                localStorage.setItem('doneSets', doneSets)})()"
+              class="neoButton"
+            >
+              <img src="plus.svg" alt="Plus" />
+            </button>
+
+            <button
+              onclick="(() => {
+              doneSetsElement.style.color = 'hsl(200, 8%, 58%)',
+              doneSets = 0,
+              doneSetsElement.innerHTML = doneSets,
+              localStorage.setItem('doneSets', doneSets)
+            })()"
+              class="neoButton"
+            >
+              <img src="reset.svg" alt="Minus" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- onchange="setSelectionElement.innerHTML = (this.value / 10);" -->
