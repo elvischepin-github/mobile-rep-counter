@@ -14,55 +14,58 @@
     <link rel="stylesheet" href="style.css" />
     <title>Pump It</title>
   </head>
-
   <body>
     <section class="container">
-      <div class="neoContainer">
-        <!-- Big counter container -->
-        <div class="totalCountContainer">
-          <p class="totalCount">0</p>
+      <div class="displayFlexCenter neoContainer">
+        <div class="displayFlexCenter totalCountContainer">
+          <p class="displayFlexCenter totalCount">0</p>
         </div>
-
-        <!-- Numbering buttons container -->
-        <div class="totalCountButtonsContainer">
-          <button class="neoButton" onclick="counterPlus1()">1</button>
-          <button class="neoButton" onclick="counterPlus5()">5</button>
-          <button class="neoButton" onclick="counterPlus10()">10</button>
-          <button class="neoButton" onclick="counterPlus25()">25</button>
-          <button class="neoButton" onclick="counterPlus50()">50</button>
-          <button class="neoButton" onclick="counterReset()">
+        <div class="displayFlexCenter totalCountButtonsContainer">
+          <button class="displayFlexCenter neoButton" onclick="counterPlus1()">
+            1
+          </button>
+          <button class="displayFlexCenter neoButton" onclick="counterPlus5()">
+            5
+          </button>
+          <button class="displayFlexCenter neoButton" onclick="counterPlus10()">
+            10
+          </button>
+          <button class="displayFlexCenter neoButton" onclick="counterPlus25()">
+            25
+          </button>
+          <button class="displayFlexCenter neoButton" onclick="counterPlus50()">
+            50
+          </button>
+          <button class="displayFlexCenter neoButton" onclick="counterReset()">
             <img src="bin.svg" alt="Bin" />
           </button>
         </div>
-
-        <!-- Range slider, lock, locked sets container -->
         <div class="rangeContainer">
-          <div class="setLockContainer">
-            <button class="neoButton setSelectionButton">
+          <div class="displayFlexCenter setLockContainer">
+            <button class="displayFlexCenter neoButton setSelectionButton">
               <p class="setSelection">0</p>
             </button>
-
-            <button onclick="toggleLock()" class="neoButton lockButton">
+            <button
+              onclick="toggleLock()"
+              class="displayFlexCenter neoButton lockButton"
+            >
               <img class="lockImage" src="lock-open.svg" alt="Lock" />
             </button>
           </div>
           <input
             class="rangeInput"
-            oninput="updateRangeSlider(this.value)"
+            oninput="updateRangeSlider(this.value), rangeInputElementValue = (this.value)"
             type="range"
             step="10"
           />
-
-          <div class="doneAddResetContainer">
-            <button class="neoButton doneSetsButton">
+          <div class="displayFlexCenter doneAddResetContainer">
+            <button class="displayFlexCenter neoButton doneSetsButton">
               <p class="doneSets"></p>
             </button>
-
-            <button onclick="setsPlus()" class="neoButton">
+            <button onclick="setsPlus()" class="displayFlexCenter neoButton">
               <img src="plus.svg" alt="Plus" />
             </button>
-
-            <button onclick="setsReset()" class="neoButton">
+            <button onclick="setsReset()" class="displayFlexCenter neoButton">
               <img src="reset.svg" alt="Minus" />
             </button>
           </div>
