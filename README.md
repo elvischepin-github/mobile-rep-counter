@@ -1,1 +1,1 @@
-https://elvischepin-github.github.io/sets-and-reps-tracker/
+https://elvischepin-github.github.io/mobile-rep-counter/
