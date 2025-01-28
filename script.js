@@ -111,6 +111,10 @@ let lockImageElement = document.getElementsByClassName("lockImage")[0];
 
 let lockState = localStorage.getItem("lockState") === "true";
 window.addEventListener("load", () => {
+  let savedValue = localStorage.getItem("setSelectionVar") || "0";
+  let rangeInput = document.getElementsByClassName("rangeInput")[0];
+  rangeInput.value = parseFloat(savedValue) * 10;
+  updateRangeSlider(rangeInput.value);
   if (lockState) {
     lockButtonElement.classList.add("buttonToggle");
     lockImageElement.src = "lock-closed.svg";
@@ -118,7 +122,6 @@ window.addEventListener("load", () => {
     rangeInputElement.disabled = true;
     rangeInputElement.style.backgroundColor = "#ff7b00";
     setSelectionElement.style.color = "#ff7b00";
-
     doneSetsElement.style.color = "#ff7b00";
   }
 });
