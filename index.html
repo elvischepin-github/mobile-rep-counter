@@ -68,6 +68,7 @@
           </div>
           <input
             class="rangeInput"
+            value="0"
             onchange="updateRangeSlider(this.value); localStorage.setItem('setSelectionVar', String(this.value * 0.1));"
             oninput="rangeInputElementValue = this.value * 0.1"
             type="range"
