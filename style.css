@@ -36,7 +36,6 @@ body {
   box-shadow: 0px -4px 7px -10px hsl(200, 8%, 38%),
     0px 4px 7px -10px hsl(200, 8%, 0%);
   background: var(--myColor);
-  border-radius: 16px;
   padding: 10px 20px;
   height: 100vh;
   width: 100vw;
@@ -195,7 +194,8 @@ img {
   box-shadow: inset 0px -2.5px 2.5px hsl(200, 8%, 49%),
     inset 0px 5px 2.5px hsl(200, 8%, 0%);
 }
-.rangeContainer input {
+/* PREFIX */
+.rangeContainer input[type="range"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -205,20 +205,74 @@ img {
   width: 360px;
   -webkit-box-shadow: inset 0px -1px 2px hsl(200, 8%, 63%),
     inset 0px 1px 2px hsl(200, 8%, 3%);
+  -moz-box-shadow: inset 0px -1px 2px hsl(200, 8%, 63%),
+    inset 0px 1px 2px hsl(200, 8%, 3%);
   box-shadow: inset 0px -1px 2px hsl(200, 8%, 63%),
     inset 0px 1px 2px hsl(200, 8%, 3%);
   border-radius: 6px;
   background-color: hsl(200, 8%, 58%);
 }
-input[type="range"]::-moz-range-thumb {
+
+/* Thumb styles for Webkit (Chrome, Safari, newer Edge) */
+.rangeContainer input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   background: hsl(200, 8%, 8%);
   border-radius: 16px;
   width: 30px;
+  height: 30px;
   box-shadow: inset 0px 1px 1px hsl(200, 8%, 18%),
     inset 0px -1px 1px hsl(200, 8%, 3%), 0px -1px 2px -1px hsl(200, 8%, 88%),
     0px 2px 2px -1px hsl(200, 8%, 3%);
   border: 5px solid hsl(200, 8%, 8%);
+  cursor: pointer;
 }
+
+/* Thumb styles for Firefox */
+.rangeContainer input[type="range"]::-moz-range-thumb {
+  background: hsl(200, 8%, 8%);
+  border-radius: 16px;
+  width: 30px;
+  height: 30px;
+  box-shadow: inset 0px 1px 1px hsl(200, 8%, 18%),
+    inset 0px -1px 1px hsl(200, 8%, 3%), 0px -1px 2px -1px hsl(200, 8%, 88%),
+    0px 2px 2px -1px hsl(200, 8%, 3%);
+  border: 5px solid hsl(200, 8%, 8%);
+  cursor: pointer;
+}
+
+/* Thumb styles for IE/Edge Legacy */
+.rangeContainer input[type="range"]::-ms-thumb {
+  background: hsl(200, 8%, 8%);
+  border-radius: 16px;
+  width: 30px;
+  height: 30px;
+  box-shadow: inset 0px 1px 1px hsl(200, 8%, 18%),
+    inset 0px -1px 1px hsl(200, 8%, 3%), 0px -1px 2px -1px hsl(200, 8%, 88%),
+    0px 2px 2px -1px hsl(200, 8%, 3%);
+  border: 5px solid hsl(200, 8%, 8%);
+  cursor: pointer;
+}
+
+/* Track styles for IE/Edge Legacy */
+.rangeContainer input[type="range"]::-ms-track {
+  width: 360px;
+  height: 8px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Fill styles for IE/Edge Legacy */
+.rangeContainer input[type="range"]::-ms-fill-lower {
+  background: hsl(200, 8%, 58%);
+  border-radius: 6px;
+}
+
+.rangeContainer input[type="range"]::-ms-fill-upper {
+  background: hsl(200, 8%, 58%);
+  border-radius: 6px;
+}
+/* PREFIX */
 .buttonToggle {
   -webkit-box-shadow: var(--nonClickAndPush);
   box-shadow: var(--nonClickAndPush);
