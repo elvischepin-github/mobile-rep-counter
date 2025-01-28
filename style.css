@@ -1,11 +1,9 @@
-/* https://colorhunt.co/palette/222831393e4600adb5eeeeee */
 @import url("https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap");
 :root {
   --myColor: hsl(200, 8%, 8%);
   --compColor: #ff7b00;
   --nonClickAndPush: inset 0px -2px 2.5px hsl(200, 8%, 43%),
     inset 0px 2px 2.5px hsl(200, 8%, 3%);
-  /* First inset from 18% to 43%*/
 }
 * {
   margin: 0;
@@ -31,12 +29,12 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
+
 .neoContainer {
   -webkit-box-shadow: 0px -4px 7px -10px hsl(200, 8%, 38%),
     0px 4px 7px -10px hsl(200, 8%, 0%);
   box-shadow: 0px -4px 7px -10px hsl(200, 8%, 38%),
     0px 4px 7px -10px hsl(200, 8%, 0%);
-  /* First shadow from 23% to 38%*/
   background: var(--myColor);
   border-radius: 16px;
   padding: 10px 20px;
@@ -51,32 +49,37 @@ body {
   gap: 20px;
 }
 p.totalCount {
-  margin-top: 50px;
-  height: 200px;
-  width: 200px;
+  margin-top: 30px;
+  height: 170px;
+  width: 170px;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  font-size: 7rem;
+  font-size: 5rem;
   -webkit-box-shadow: 0px -4px 7px hsl(200, 8%, 38%),
     0px 4px 7px hsl(200, 8%, 0%);
   box-shadow: 0px -4px 7px hsl(200, 8%, 38%), 0px 4px 7px hsl(200, 8%, 0%);
-  /* First shadow from 23% to */
   border: 2px solid var(--myColor);
   border-radius: 100px;
+}
+div.chronoContainer {
+  width: 275px;
+  height: 100px;
+  padding: 10px;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+div.chronoNumbers p {
+  font-size: 2.5rem;
+  padding: 0 2px;
 }
 div.totalCountContainer {
   height: 150px;
 }
 div.totalCountButtonsContainer {
-  height: 200px;
-  width: 300px;
-  margin-top: 50px;
+  height: 170px;
+  width: 275px;
   padding-top: 25px;
-  -webkit-box-shadow: inset 0px -3px 7px hsl(200, 8%, 13%),
-    inset 0px 3px 7px hsl(200, 8%, 0%);
-  box-shadow: inset 0px -3px 7px hsl(200, 8%, 13%),
-    inset 0px 3px 7px hsl(200, 8%, 0%);
-  border-radius: 12px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 16px auto 16px auto;
@@ -84,6 +87,13 @@ div.totalCountButtonsContainer {
   -ms-grid-rows: auto 16px auto 16px auto;
   grid-template-rows: auto auto auto;
   gap: 16px;
+}
+.pannel {
+  -webkit-box-shadow: inset 0px -3px 7px hsl(200, 8%, 13%),
+    inset 0px 3px 7px hsl(200, 8%, 0%);
+  box-shadow: inset 0px -3px 7px hsl(200, 8%, 13%),
+    inset 0px 3px 7px hsl(200, 8%, 0%);
+  border-radius: 12px;
 }
 div.totalCountButtonsContainer > *:nth-child(1) {
   -ms-grid-row: 1;
@@ -143,7 +153,6 @@ img {
   -webkit-box-shadow: 0px -2px 4px hsl(200, 8%, 38%),
     0px 2px 4px hsl(200, 8%, 0%);
   box-shadow: 0px -2px 4px hsl(200, 8%, 38%), 0px 2px 4px hsl(200, 8%, 0%);
-  /* First shadow from 23% to */
 }
 .neoButton:active {
   -webkit-box-shadow: var(--nonClickAndPush);
@@ -175,17 +184,23 @@ img {
   font-size: 2rem;
 }
 .lockButton:active {
-  -webkit-box-shadow: inset 0px -3px 2.5px hsl(200, 8%, 18%),
-    inset 0px 4px 2.5px hsl(200, 8%, 3%);
-  box-shadow: inset 0px -3px 2.5px hsl(200, 8%, 18%),
-    inset 0px 4px 2.5px hsl(200, 8%, 3%);
+  -webkit-box-shadow: inset 0px -2.5px 2.5px hsl(200, 8%, 49%),
+    inset 0px 5px 2.5px hsl(200, 8%, 0%);
+  box-shadow: inset 0px -2.5px 2.5px hsl(200, 8%, 49%),
+    inset 0px 5px 2.5px hsl(200, 8%, 0%);
+}
+.startButton:active {
+  -webkit-box-shadow: inset 0px -2.5px 2.5px hsl(200, 8%, 49%),
+    inset 0px 5px 2.5px hsl(200, 8%, 0%);
+  box-shadow: inset 0px -2.5px 2.5px hsl(200, 8%, 49%),
+    inset 0px 5px 2.5px hsl(200, 8%, 0%);
 }
 .rangeContainer input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   height: 8px;
   width: 360px;
   -webkit-box-shadow: inset 0px -1px 2px hsl(200, 8%, 63%),
@@ -210,4 +225,11 @@ input[type="range"]::-moz-range-thumb {
 }
 .doneAddResetContainer {
   gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .neoContainer {
+    justify-content: center;
+    gap: 50px;
+  }
 }

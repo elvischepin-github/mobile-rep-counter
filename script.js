@@ -1,3 +1,53 @@
+// Chrono
+let startButtonElement = document.getElementsByClassName("startButton")[0];
+let startImageElement = document.getElementsByClassName("startImage")[0];
+let resetButtonElement = document.getElementsByClassName("resetButton")[0];
+let minutesElement = document.getElementById("mins");
+let secondsElement = document.getElementById("secs");
+
+let minutes = 0;
+let seconds = 0;
+
+function startCounting() {
+  seconds++;
+  if (seconds >= 60) {
+    seconds = 0;
+    minutes++;
+    if (minutes < 10) {
+      minutesElement.innerHTML = `0${minutes}`;
+    } else {
+      minutesElement.innerHTML = minutes;
+    }
+  }
+  if (seconds < 10) {
+    secondsElement.innerHTML = `0${seconds}`;
+  } else {
+    secondsElement.innerHTML = seconds;
+  }
+}
+
+function startingButton() {
+  startButtonElement.classList.add("buttonToggle");
+  startButtonElement.disabled = true;
+  startImageElement.src = "start-goes.svg";
+  startingInterval = setInterval(startCounting, 1000);
+}
+
+function resetButton() {
+  startButtonElement.classList.remove("buttonToggle");
+  startButtonElement.disabled = false;
+  startImageElement.src = "start.svg";
+  try {
+    clearInterval(startingInterval);
+  } catch {
+    console.log("'startingInterval' - Has not yet started.");
+  }
+
+  (minutes = 0), (seconds = 0);
+  minutesElement.innerHTML = `0${minutes}`;
+  secondsElement.innerHTML = `0${seconds}`;
+}
+
 // Counter
 let counter = parseInt(localStorage.getItem("counter")) || 0;
 const totalCountElement = document.body.getElementsByClassName("totalCount")[0];
@@ -129,10 +179,3 @@ function setsPlus() {
       localStorage.setItem("doneSets", doneSets);
   }
 }
-
-// function setsReset() {
-//   (doneSetsElement.style.color = "hsl(200, 8%, 88%)"),
-//     (doneSets = 0),
-//     (doneSetsElement.innerHTML = doneSets),
-//     localStorage.setItem("doneSets", doneSets);
-// }
