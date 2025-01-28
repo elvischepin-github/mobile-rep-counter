@@ -1,59 +1,48 @@
 /* https://colorhunt.co/palette/222831393e4600adb5eeeeee */
-
 @import url("https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap");
 :root {
   --myColor: hsl(200, 8%, 8%);
   --compColor: #ff7b00;
+  --nonClickAndPush: inset 0px -2px 2.5px hsl(200, 8%, 18%),
+    inset 0px 2px 2.5px hsl(200, 8%, 3%);
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: Smooch Sans;
   font-size: 18px;
-  color: hsl(200, 8%, 58%);
+  color: hsl(200, 8%, 88%);
 }
 body {
   margin: auto;
   background-color: hsl(200, 8%, 5%);
 }
-section.container {
-  height: 100vh;
-  width: 100vw;
-}
 .neoContainer {
   box-shadow: 0px -4px 7px -10px hsl(200, 8%, 23%),
     0px 4px 7px -10px hsl(200, 8%, 0%);
-
   background: var(--myColor);
   border-radius: 16px;
-
   padding: 10px 20px;
-
   height: 100vh;
   width: 100vw;
-
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  gap: 20px;
 }
 p.totalCount {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  margin-top: 50px;
   height: 200px;
   width: 200px;
-
   text-decoration: underline;
   text-decoration-thickness: 1px;
-
   font-size: 7rem;
-
   box-shadow: 0px -4px 7px hsl(200, 8%, 23%), 0px 4px 7px hsl(200, 8%, 0%);
-
   border: 2px solid var(--myColor);
   border-radius: 100px;
 }
@@ -67,15 +56,11 @@ div.totalCountContainer {
 div.totalCountButtonsContainer {
   height: 200px;
   width: 300px;
-
-  margin-top: 20px;
+  margin-top: 50px;
   padding-top: 25px;
-
   box-shadow: inset 0px -3px 7px hsl(200, 8%, 13%),
     inset 0px 3px 7px hsl(200, 8%, 0%);
-
   border-radius: 12px;
-
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
@@ -86,12 +71,9 @@ div.totalCountButtonsContainer {
 button {
   height: 55px;
   width: 60px;
-
   font-size: 2rem;
-
   border: none;
   border-radius: 16px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,8 +91,7 @@ img {
   box-shadow: 0px -2px 4px hsl(200, 8%, 23%), 0px 2px 4px hsl(200, 8%, 0%);
 }
 .neoButton:active {
-  box-shadow: inset 0px -2px 2.5px hsl(200, 8%, 18%),
-    inset 0px 2px 2.5px hsl(200, 8%, 3%);
+  box-shadow: var(--nonClickAndPush);
 }
 .setLockContainer {
   display: flex;
@@ -118,24 +99,22 @@ img {
   align-items: center;
   justify-content: center;
   gap: 16px;
-
-  margin-top: 15px;
 }
 .setSelectionButton {
-  box-shadow: inset 0px -2px 2.5px hsl(200, 8%, 18%),
-    inset 0px 2px 2.5px hsl(200, 8%, 3%);
+  box-shadow: var(--nonClickAndPush);
 }
 .doneSetsButton {
-  box-shadow: inset 0px -2px 2.5px hsl(200, 8%, 18%),
-    inset 0px 2px 2.5px hsl(200, 8%, 3%);
+  box-shadow: var(--nonClickAndPush);
 }
 .setSelection {
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  font-size: 2rem;
 }
 .doneSets {
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  font-size: 2rem;
 }
 .lockButton:active {
   box-shadow: inset 0px -3px 2.5px hsl(200, 8%, 18%),
@@ -143,39 +122,28 @@ img {
 }
 .rangeContainer input {
   -webkit-appearance: none;
-
+  appearance: none;
   margin-top: 20px;
   margin-bottom: 20px;
-
   height: 8px;
   width: 360px;
-
   box-shadow: inset 0px -1px 2px hsl(200, 8%, 63%),
     inset 0px 1px 2px hsl(200, 8%, 3%);
-
   border-radius: 6px;
-
   background-color: hsl(200, 8%, 58%);
 }
 input[type="range"]::-moz-range-thumb {
   background: hsl(200, 8%, 8%);
-
-  border-radius: 100px;
-
-  width: 10px;
-
+  border-radius: 16px;
+  width: 30px;
   box-shadow: inset 0px 1px 1px hsl(200, 8%, 18%),
     inset 0px -1px 1px hsl(200, 8%, 3%), 0px -1px 2px -1px hsl(200, 8%, 18%),
     0px 2px 2px -1px hsl(200, 8%, 3%);
-
-  border: 3px solid hsl(200, 8%, 8%);
+  border: 5px solid hsl(200, 8%, 8%);
 }
-
 .buttonToggle {
-  box-shadow: inset 0px -2px 2.5px hsl(200, 8%, 18%),
-    inset 0px 2px 2.5px hsl(200, 8%, 3%);
+  box-shadow: var(--nonClickAndPush);
 }
-
 .doneAddResetContainer {
   display: flex;
   align-items: center;
