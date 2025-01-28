@@ -41,20 +41,42 @@ function counterReset() {
 
 // Setting sets and lock
 let rangeInputElementValue =
-  document.getElementsByClassName("rangeInput")[0].value;
+  document.getElementsByClassName("rangeInput")[0].value * 0.1;
 let rangeInputElement = document.getElementsByClassName("rangeInput")[0];
 let setSelectionElement = document.getElementsByClassName("setSelection")[0];
-setSelectionElement.innerHTML = rangeInputElementValue / 10;
+
+let setSelectionVar = parseInt(
+  localStorage.getItem("setSelectionVar") || rangeInputElementValue
+);
+setSelectionElement.innerHTML = rangeInputElementValue;
 
 function updateRangeSlider(value) {
-  setSelectionElement.innerHTML = value / 10;
+  let newValue = value * 0.1;
+  setSelectionElement.innerHTML = newValue;
+  localStorage.setItem("setSelectionVar", newValue);
 }
 
 let lockButtonElement = document.getElementsByClassName("lockButton")[0];
 let lockImageElement = document.getElementsByClassName("lockImage")[0];
 
+let lockState = localStorage.getItem("lockState") === "true";
+window.addEventListener("load", () => {
+  if (lockState) {
+    lockButtonElement.classList.add("buttonToggle");
+    lockImageElement.src = "lock-closed.svg";
+    lockImageElement.style.marginLeft = "0px";
+    rangeInputElement.disabled = true;
+    rangeInputElement.style.backgroundColor = "#ff7b00";
+    setSelectionElement.style.color = "#ff7b00";
+
+    doneSetsElement.style.color = "#ff7b00";
+  }
+});
+
 function toggleLock() {
   lockButtonElement.classList.toggle("buttonToggle");
+  const isLocked = lockButtonElement.classList.contains("buttonToggle");
+
   lockImageElement.src = lockButtonElement.classList.contains("buttonToggle")
     ? "lock-closed.svg"
     : "lock-open.svg";
@@ -77,6 +99,16 @@ function toggleLock() {
   )
     ? "#ff7b00"
     : "hsl(200, 8%, 88%)";
+
+  (doneSets = lockButtonElement.classList.contains("buttonToggle")
+    ? null
+    : localStorage.setItem("doneSets", 0)),
+    (doneSetsElement.innerHTML = 0);
+  localStorage.setItem("lockState", isLocked);
+}
+
+function revertSetsColor() {
+  doneSetsElement.style.color = "hsl(200, 8%, 88%)";
 }
 
 // Done sets
@@ -85,17 +117,22 @@ let doneSets = parseInt(localStorage.getItem("doneSets") || 0);
 doneSetsElement.innerHTML = doneSets;
 
 function setsPlus() {
-  doneSets < rangeInputElementValue / 10 ? doneSets++ : null,
-    doneSets == rangeInputElementValue / 10
-      ? (doneSetsElement.style.color = "#ff7b00")
-      : null,
-    (doneSetsElement.innerHTML = doneSets),
-    localStorage.setItem("doneSets", doneSets);
+  if (
+    lockButtonElement.classList.contains("buttonToggle") &&
+    rangeInputElementValue != 0
+  ) {
+    doneSets < rangeInputElementValue ? doneSets++ : null,
+      doneSets == rangeInputElementValue
+        ? (doneSetsElement.style.color = "#ff7b00")
+        : null,
+      (doneSetsElement.innerHTML = doneSets),
+      localStorage.setItem("doneSets", doneSets);
+  }
 }
 
-function setsReset() {
-  (doneSetsElement.style.color = "hsl(200, 8%, 88%)"),
-    (doneSets = 0),
-    (doneSetsElement.innerHTML = doneSets),
-    localStorage.setItem("doneSets", doneSets);
-}
+// function setsReset() {
+//   (doneSetsElement.style.color = "hsl(200, 8%, 88%)"),
+//     (doneSets = 0),
+//     (doneSetsElement.innerHTML = doneSets),
+//     localStorage.setItem("doneSets", doneSets);
+// }
