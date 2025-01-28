@@ -20,7 +20,21 @@
         <div class="displayFlexCenter totalCountContainer">
           <p class="displayFlexCenter totalCount">0</p>
         </div>
-        <div class="displayFlexCenter totalCountButtonsContainer">
+        <div class="displayFlexCenter chronoContainer pannel">
+          <button onclick="startingButton()" class="neoButton startButton">
+            <img class="startImage" src="start.svg" alt="Start" />
+          </button>
+
+          <div class="displayFlexCenter chronoNumbers">
+            <p id="mins">00</p>
+            <p>:</p>
+            <p id="secs">00</p>
+          </div>
+          <button onclick="resetButton()" class="neoButton resetButton">
+            <img src="reset.svg" alt="Reset" />
+          </button>
+        </div>
+        <div class="displayFlexCenter totalCountButtonsContainer pannel">
           <button class="displayFlexCenter neoButton" onclick="counterPlus1()">
             1
           </button>
@@ -65,9 +79,6 @@
             <button onclick="setsPlus()" class="displayFlexCenter neoButton">
               <img src="plus.svg" alt="Plus" />
             </button>
-            <!-- <button onclick="setsReset()" class="displayFlexCenter neoButton">
-              <img src="reset.svg" alt="Minus" />
-            </button> -->
           </div>
         </div>
       </div>
