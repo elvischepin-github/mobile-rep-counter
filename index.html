@@ -46,7 +46,7 @@
               <p class="setSelection">0</p>
             </button>
             <button
-              onclick="toggleLock()"
+              onclick="toggleLock(), revertSetsColor()"
               class="displayFlexCenter neoButton lockButton"
             >
               <img class="lockImage" src="lock-open.svg" alt="Lock" />
@@ -54,7 +54,7 @@
           </div>
           <input
             class="rangeInput"
-            oninput="updateRangeSlider(this.value), rangeInputElementValue = (this.value)"
+            oninput="updateRangeSlider(this.value), rangeInputElementValue = this.value * 0.1"
             type="range"
             step="10"
           />
@@ -65,9 +65,9 @@
             <button onclick="setsPlus()" class="displayFlexCenter neoButton">
               <img src="plus.svg" alt="Plus" />
             </button>
-            <button onclick="setsReset()" class="displayFlexCenter neoButton">
+            <!-- <button onclick="setsReset()" class="displayFlexCenter neoButton">
               <img src="reset.svg" alt="Minus" />
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
