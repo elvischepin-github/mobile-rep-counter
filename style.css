@@ -63,9 +63,9 @@ p.totalCount {
 div.chronoContainer {
   width: 275px;
   height: 100px;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 div.chronoNumbers p {
